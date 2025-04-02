@@ -21,11 +21,16 @@ const addLocalStorage = (id) => {
     const newCart = [...cart, id];
     saveToLocalStorages(newCart);
 }
-
+const removeFormLocalStorages = (id) => {
+    const storedCard = getCardFormLocalStorages();
+    const remainingCart = storedCard.filter(storedId => storedId !== id);
+    saveToLocalStorages(remainingCart);
+}
 
 export {
     getCardFormLocalStorages,
-    addLocalStorage
+    addLocalStorage,
+    removeFormLocalStorages
 }
 
 

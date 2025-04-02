@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import Bottle from '../bottle/bottle';
 import './bottles.css';
-import { addLocalStorage, getCardFormLocalStorages } from '../../utilities/localStorages';
+import { addLocalStorage, getCardFormLocalStorages, removeFormLocalStorages } from '../../utilities/localStorages';
 
 const Bottles = ({ bottlesPromise }) => {
     const bottles = use(bottlesPromise);
@@ -31,7 +31,11 @@ const Bottles = ({ bottlesPromise }) => {
         addLocalStorage(bottle.id);
 
     }
-
+    const removeFormCart = (id) => {
+        const remainingCart = purchase.filter(bottle => bottle.id !== id);
+        setPurchase(remainingCart);
+        removeFormLocalStorages(id);
+    }
 
     return (
         <div>
@@ -44,7 +48,7 @@ const Bottles = ({ bottlesPromise }) => {
                             return (
                                 <div>
                                     <img key={purchase.id} src={purchase.img} alt="" />
-                                    <button>X</button>
+                                    <button onClick={() => removeFormCart(purchase.id)}>x</button>
                                 </div>
                             )
                         })
