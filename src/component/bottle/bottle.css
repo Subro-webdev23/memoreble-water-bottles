@@ -1,0 +1,17 @@
+.card {
+    padding: 20px;
+    border: 2px solid salmon;
+    margin: 10px;
+    background-color: #EBEEEF;
+    border-radius: 20px;
+}
+
+.card img {
+    width: 250px;
+
+}
+
+.card button {
+    background-color: aqua;
+    outline: none;
+}

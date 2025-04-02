@@ -1,0 +1,14 @@
+.bottles-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.purchased {
+    display: flex;
+    gap: 20px;
+}
+
+.purchased img {
+    width: 100px;
+}
